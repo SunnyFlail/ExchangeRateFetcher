@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SunnyFlail\CurrencyRateFetcher\NBPApi\Client;
+namespace SunnyFlail\ExchangeRateFetcher\NBPApi\Client;
 
 final class ClientException extends \Exception
 {
