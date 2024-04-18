@@ -1,0 +1,24 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    restart: 'on-failure'
+    tty: true
+    volumes:
+      - .:/var/www
+    ports:
+      - '80:80'      
+
+  db:
+    image: mariadb:11.1.4
+    restart: 'on-failure'
+    environment:
+      MYSQL_DATABASE: 'exchange_rate_fetcher'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+    - '3306:3306'
+    volumes:
+      - ./docker/db/data:/var/lib/mysql:rw
