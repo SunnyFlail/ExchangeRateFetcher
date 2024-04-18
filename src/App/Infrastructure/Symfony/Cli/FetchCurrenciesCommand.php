@@ -13,7 +13,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-#[AsCommand('app:fetch-currency-rates')]
+#[AsCommand('app:fetch-currencies')]
 final class FetchCurrenciesCommand extends Command
 {
     public function __construct(private MessageBusInterface $messageBus)
@@ -32,14 +32,14 @@ final class FetchCurrenciesCommand extends Command
             ));
         } catch (\Throwable $e) {
             $style->error([
-                'An exception occured while fetching exchange rates:',
+                'An exception occured while fetching currencies:',
                 $e->getMessage(),
             ]);
 
             return Command::FAILURE;
         }
 
-        $style->success('Successfully fetched exchange rates.');
+        $style->success('Successfully fetched currencies.');
 
         return Command::SUCCESS;
     }
