@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SunnyFlail\ExchangeRateFetcher\App\Handler;
 
-use SunnyFlail\ExchangeRateFetcher\App\Bus\MessageBusInterface;
+use SunnyFlail\ExchangeRateFetcher\App\MessageBus\MessageBusInterface;
 use SunnyFlail\ExchangeRateFetcher\App\Message\FetchExchangeRates;
 use SunnyFlail\ExchangeRateFetcher\App\Message\UpdateCurrency;
 use SunnyFlail\ExchangeRateFetcher\NBPApi\Sdk\NBPApiSdkInterface;

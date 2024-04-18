@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SunnyFlail\ExchangeRateFetcher\App\Bus;
+namespace SunnyFlail\ExchangeRateFetcher\App\MessageBus;
 
 use SunnyFlail\ExchangeRateFetcher\App\Message\MessageInterface;
 

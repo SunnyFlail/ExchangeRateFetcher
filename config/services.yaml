@@ -19,6 +19,8 @@ services:
             - '../src/**/Response/'
             - '../src/Kernel.php'
 
+    SunnyFlail\ExchangeRateFetcher\NBPApi\MessageBus\MessageBusInterface: '@SunnyFlail\ExchangeRateFetcher\NBPApi\Infrastructure\Symfony\MessageBus\MessageBus'
+
     SunnyFlail\ExchangeRateFetcher\NBPApi\Client\ApiClientInterface: '@SunnyFlail\ExchangeRateFetcher\NBPApi\Infrastructure\Symfony\Client\JsonApiClient'
 
     SunnyFlail\ExchangeRateFetcher\NBPApi\Infrastructure\Symfony\Client\JsonApiClient:
