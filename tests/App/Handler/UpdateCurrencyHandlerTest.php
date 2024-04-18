@@ -30,11 +30,23 @@ final class UpdateCurrencyHandlerTest extends TestCase
             'currencyName' => 'EURO',
             'currencyCode' => 'EUR',
             'exchangeRate' => 1.0,
-            Currency::create(
+            'currency' => Currency::create(
                 new Uuid('a6836d4f-7356-42e8-8404-d8506029c1d6'),
                 'EURO',
                 'EUR'
             ),
+        ];
+        yield 'Same exchange rate' => [
+            'currencyName' => 'Japanese Yen',
+            'currencyCode' => 'JPY',
+            'exchangeRate' => 0.0263,
+            'currency' => Currency::create(
+                new Uuid('8e894169-465e-46a1-8ac1-6569653b9224'),
+                'Japanese Yen',
+                'JPY',
+                263
+            ),
+            'shouldExpectSave' => false,
         ];
     }
 
@@ -43,7 +55,8 @@ final class UpdateCurrencyHandlerTest extends TestCase
         string $currencyName,
         string $currencyCode,
         float $exchangeRate,
-        ?Currency $currency = null
+        ?Currency $currency = null,
+        bool $shouldExpectSave = true
     ): void {
         $currencyRepository = $this->createMock(CurrencyRepositoryInterface::class);
         $uuidGenerator = new UuidGenerator();
@@ -61,6 +74,11 @@ final class UpdateCurrencyHandlerTest extends TestCase
             ->expects($this->once())
             ->method('findCurrencyByCode')
             ->willReturn($currency)
+        ;
+
+        $currencyRepository
+            ->expects($shouldExpectSave ? $this->once() : $this->never())
+            ->method('save')
         ;
 
         $SUT->__invoke($message);
