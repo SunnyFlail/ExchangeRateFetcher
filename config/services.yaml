@@ -24,3 +24,7 @@ services:
     SunnyFlail\ExchangeRateFetcher\NBPApi\Infrastructure\Symfony\Client\JsonApiClient:
         arguments:
             $baseApiUrl: '%nbp_api_url%'
+
+    SunnyFlail\ExchangeRateFetcher\NBPApi\Sdk\NBPApiSdkInterface: '@SunnyFlail\ExchangeRateFetcher\NBPApi\Sdk\NBPApiSdk'
+
+    SunnyFlail\CurrencyRateFetcher\App\Uuid\UuidGeneratorInterface: '@SunnyFlail\CurrencyRateFetcher\App\Infrastructure\Symfony\Uuid\UuidGenerator'
