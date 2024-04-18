@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping
+    xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+>
+    <entity name="SunnyFlail\ExchangeRateFetcher\App\Entity\Currency" table="currencies">
+        <indexes>
+            <index name="curr_code_idx" columns="currency_code"/>
+        </indexes>
+        <id name="id" type="uuid" column="id"/>
+        <field name="name" column="name" type="string" length="128"/>
+        <field name="currencyCode" column="currency_code" type="string" length="60" unique="true"/>
+        <field name="exchangeRate" column="exchange_rate" type="integer"/>
+    </entity>
+</doctrine-mapping>
