@@ -31,8 +31,13 @@ final class Currency
         $this->exchangeRate = $exchangeRate;
     }
 
-    public static function create(Uuid $uuid, string $name, string $currencyCode): Currency
+    public static function create(
+        Uuid $uuid,
+        string $name,
+        string $currencyCode,
+        ?int $exchangeRate = null
+    ): Currency
     {
-        return new Currency($uuid->__toString(), $name, $currencyCode, null);
+        return new Currency($uuid->__toString(), $name, $currencyCode, $exchangeRate);
     }
 }
