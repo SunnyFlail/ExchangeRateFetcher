@@ -1,4 +1,5 @@
 parameters:
+    nbp_api_url: 'http://api.nbp.pl/api'
 services:
     _defaults:
         autowire: true
@@ -17,3 +18,9 @@ services:
             - '../src/**/Message/'
             - '../src/**/Response/'
             - '../src/Kernel.php'
+
+    SunnyFlail\ExchangeRateFetcher\NBPApi\Client\ApiClientInterface: '@SunnyFlail\ExchangeRateFetcher\NBPApi\Infrastructure\Symfony\Client\JsonApiClient'
+
+    SunnyFlail\ExchangeRateFetcher\NBPApi\Infrastructure\Symfony\Client\JsonApiClient:
+        arguments:
+            $baseApiUrl: '%nbp_api_url%'
