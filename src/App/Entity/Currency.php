@@ -36,8 +36,7 @@ final class Currency
         string $name,
         string $currencyCode,
         ?int $exchangeRate = null
-    ): Currency
-    {
+    ): Currency {
         return new Currency($uuid->__toString(), $name, $currencyCode, $exchangeRate);
     }
 }

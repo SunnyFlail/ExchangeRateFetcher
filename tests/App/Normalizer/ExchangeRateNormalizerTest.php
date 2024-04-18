@@ -26,7 +26,7 @@ final class ExchangeRateNormalizerTest extends TestCase
 
         yield 'Over the treshold' => [
             'exchangeRate' => 2.00007,
-            'expected' => 20001
+            'expected' => 20001,
         ];
     }
 
