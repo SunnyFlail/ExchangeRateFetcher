@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SunnyFlail\ExchangeRateFetcher\App\Infrastructure\Symfony\Cli;
 
-use SunnyFlail\ExchangeRateFetcher\App\MessageBus\MessageBusInterface;
 use SunnyFlail\ExchangeRateFetcher\App\Message\FetchExchangeRates;
+use SunnyFlail\ExchangeRateFetcher\App\MessageBus\MessageBusInterface;
 use SunnyFlail\ExchangeRateFetcher\NBPApi\Enum\Table;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
